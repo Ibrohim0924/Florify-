@@ -38,22 +38,13 @@ export class SoldProductController{
     }
 
     async getAllSoldProducts(req, res){
-    try {
-        const clientId = req.user?.id
-
-        if (!clientId) {
-            return resError(res, "Not authorized", 401)
+        try {
+            const sold_product = await SoldProduct.find()
+            return resSuccess(res, sold_product)
+        } catch (error) {
+            return resError(res, error)
         }
-
-        const soldProducts = await SoldProduct.find({ client_id: clientId })
-            .populate("product_id") 
-            .populate("client_id") 
-        return resSuccess(res, soldProducts)
-
-    } catch (error) {
-        return resError(res, error)
     }
-}
 
     async getSoldProductById(req, res){
         try {

@@ -14,9 +14,9 @@ router
     .post('/token', controller.newAccessToken)
     .post('/logout', controller.logOut)
     
-    .get('/',AuthGuard, RolesGuard(['admin', 'superadmin']), controller.getAllSalesmans)
-    .get('/:id',AuthGuard, SelfGuard ,controller.getSalesmanById)
-    .patch('/:id',AuthGuard, SelfGuard , controller.updateSalesmanById)
-    .delete('/:id',AuthGuard, RolesGuard(['admin', 'superadmin']), controller.deleteSalesmanById)
+    .get('/',AuthGuard, RolesGuard(['admin', 'superadmin', 'salesman']), controller.getAllSalesmans)
+    .get('/:id',AuthGuard, RolesGuard(['admin', 'superadmin', 'salesman']) ,controller.getSalesmanById)
+    .patch('/:id',AuthGuard, RolesGuard(['admin', 'superadmin', 'salesman']) , controller.updateSalesmanById)
+    .delete('/:id',AuthGuard, RolesGuard(['admin', 'superadmin', 'salesman']), controller.deleteSalesmanById)
 
 export default router
