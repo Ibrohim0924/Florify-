@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/main.js",
-    "superadmin": "node src/db/createsuperadmin.js"
+    "start": "node src/main.js",
+    "superadmin": "node src/db/createsuperadmin.js",
+    "seed:manga": "node src/db/seedManga.js"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +18,13 @@
     "bcrypt": "^6.0.0",
     "cookie": "^1.0.2",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.0",
+    "multer": "^1.4.5-lts.1",
     "node-cache": "^5.1.2",
     "nodemailer": "^7.0.3",
     "nodemon": "^3.1.10",
